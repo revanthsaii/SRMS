@@ -97,6 +97,6 @@ The project uses file handling to store, manage, and analyze student records so 
 
 **TALLURI REVANTH SAI** – SRM University  
 Email: revanthsai_talluri@srmap.edu.in  
-Passionate about C programming, data management, and automation.[1]
+Passionate about C programming, data management, and automation.
 
 ***
