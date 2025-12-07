@@ -76,7 +76,7 @@ The project uses file handling to store, manage, and analyze student records so 
 
 - **Credentials (`credentials.txt`)**  
   - Line 1: username  
-  - Line 2: password[1]
+  - Line 2: password
 
 - **Login History (`login_history.txt`)**  
   - Each line: `<timestamp> – <status>`  
