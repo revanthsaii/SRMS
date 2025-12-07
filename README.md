@@ -1,124 +1,102 @@
-Student Management System
+***
 
-A simple and efficient Student Management System built using C. This project helps store, manage, update, delete, search, and export student records. It works completely on file handling, ensuring data is permanently stored even after the program closes.
+# Student Management System (SRMS)
 
-Features:
+A simple and efficient Student Management System built using C.[1]
+The project uses file handling to store, manage, and analyze student records so that data persists even after the program exits.[1]
 
-Core Features
+## Features
 
-Add new student records
+### Core Functionality
+- Add new student records  
+- View all student records  
+- Search for a student by ID or name  
+- Update existing student information  
+- Delete a student record  
+- Export student records to a CSV file  
+- Generate student reports and summaries[1]
 
-View all student records
+### Analytics and Reporting
+- Display top-performing students  
+- Count the total number of students  
+- Categorize students by department  
+- Sort students by marks, name, or ID[1]
 
-Search for a student by ID or name
+### Security and Login
+- Admin login system using credentials stored in a file  
+- Track login history with timestamps  
+- Credentials stored in a dedicated text file  
+- Planned support for encrypted credential storage and role-based login[1]
 
-Update existing student information
+### Additional Usability Features
+- Simple file-based “database” using plain text files  
+- Auto-save after every operation  
+- Error handling for invalid inputs  
+- Prevention of duplicate student IDs  
+- Clean and modular C code structure for easier maintenance[1]
 
-Delete a student record
+## Project Structure
 
-Export student records to a CSV file
+- `src/`  
+  Contains all C source files (main logic, menu handling, file operations, utilities).[1]
+- `include/`  
+  Header files defining structures, function prototypes, and constants.[1]
+- `data/`  
+  - `students.txt` – Raw student data storage  
+  - `exported_students.csv` – Exported student report in CSV format  
+  - `credentials.txt` – Admin login credentials  
+  - `login_history.txt` – Timestamped login records[1]
+- `output/`  
+  - `report.txt` – Generated report file  
+  - `top_students.txt` – List of top performers  
+  - Additional backups or generated outputs (if enabled)[1]
 
-Maintain a login system
+## How It Works
 
-Track login history
+1. The admin logs in using a username and password stored in `credentials.txt`.  
+2. Each login attempt is appended to `login_history.txt` with a timestamp and status.  
+3. Student records are stored in `students.txt` using a predefined, consistent format.  
+4. Exporting generates `exported_students.csv` for use in Excel or other tools.  
+5. Updates and deletions are handled via temporary files to safely rewrite `students.txt`.[1]
 
-Store credentials securely in a text file
+## How to Run
 
-Generate student reports
+1. Install a C compiler (GCC recommended).[1]
+2. Compile the program from the `src` folder (adjust source filenames if needed):
+   ```bash
+   gcc main.c -o sms
+   ```
+3. Run the executable:
+   ```bash
+   ./sms
+   ```
 
-Display top performers
 
-Count total number of students
+## File Formats
 
-Categorize students by department
+- **Credentials (`credentials.txt`)**  
+  - Line 1: username  
+  - Line 2: password[1]
 
-Sort students by marks, name, or ID
+- **Login History (`login_history.txt`)**  
+  - Each line: `<timestamp> – <status>`  
+  - Example: `2025-01-11 14:32:22 – Login successful`[1]
 
-Additional Features:
+- **Exported CSV (`exported_students.csv`)**  
+  - Columns: `student_id, name, department, marks, age`[1]
 
-Simple file-based database
+## Future Enhancements
 
-Auto-save after every operation
+- Graphical User Interface (GUI)  
+- Online database integration (e.g., MySQL/PostgreSQL)  
+- Role-based login system (admin, staff, viewer)  
+- Encrypted credential storage  
+- Attendance and fee management modules[1]
 
-Error handling for invalid inputs
+## Author
 
-Duplicate-ID prevention
+**TALLURI REVANTH SAI** – SRM University  
+Email: revanthsai_talluri@srmap.edu.in  
+Passionate about C programming, data management, and automation.[1]
 
-Minimal and easy-to-read C code structure
-
-File Structure Source Code
-
-Contains all C files needed to run the system.
-
-Data Folder
-
-Stores:
-
-students.txt – raw student data
-
-exported_students.csv – exported report
-
-credentials.txt – admin login credentials
-
-login_history.txt – timestamped login records
-
-Output Folder
-
-Contains generated files such as:
-
-report.txt
-
-top_students.txt
-
-backups (if enabled)
-
-How It Works
-
-The admin logs in using a username and password stored in credentials.txt.
-
-Every login is recorded inside login_history.txt.
-
-Students are added and stored in students.txt using a predefined format.
-
-When export is selected, the system generates exported_students.csv.
-
-Updates and deletions modify the same file using temporary file handling.
-
-How to Run
-
-Install a C compiler (GCC recommended).
-
-Compile the program: gcc main.c -o sms
-
-Run the program: ./sms
-
-Credentials File Format
-
-File: credentials.txt admin password
-
-(First line is username, second line is password.)
-
-Login History File Format
-
-File: login_history.txt Each line contains a timestamp and login status.
-
-Example: 2025-01-11 14:32:22 – Login successful
-
-Exported CSV Format
-
-File: exported_students.csv CSV includes: student_id, name, department, marks, age
-
-Future Enhancements
-
-GUI version
-
-Online database integration
-
-Role-based login
-
-Author
-
-TALLURI REVANTH SAI – SRM University Email: revanthsai_talluri@srmap.edu.in Passionate about C programming, data management, and automation.
-Encrypted credential storage
-
-Attendance and fee management
+***
