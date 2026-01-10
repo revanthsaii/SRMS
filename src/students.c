@@ -38,14 +38,26 @@ void saveStudents() {
 }
 
 void displayStudents() {
-    printf("\n--- Student Records ---\n");
+    if (studentCount == 0) {
+        printf("\nNo students in the database.\n");
+        return;
+    }
+    
+    printf("\n╔════════════════════════════════════════════╗\n");
+    printf("║          STUDENT RECORDS (%d)             ║\n", studentCount);
+    printf("╠════════════════════════════════════════════╣\n");
+    printf("║  ID  │  Name                │  Marks      ║\n");
+    printf("╠══════╪═══════════════════════╪═════════════╣\n");
+    
     for (int i = 0; i < studentCount; i++) {
-        printf("%d  %s  %.2f\n", 
+        printf("║ %-4d │ %-20s │  %6.2f     ║\n", 
             students[i].id, 
             students[i].name, 
             students[i].marks
         );
     }
+    
+    printf("╚══════╧═══════════════════════╧═════════════╝\n");
 }
 
 void searchStudent() {
