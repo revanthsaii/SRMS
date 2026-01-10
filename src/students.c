@@ -191,6 +191,44 @@ void updateStudent() {
     printf("Student with ID %d not found!\n", id);
 }
 
+void deleteStudent() {
+    int id;
+    char buffer[100];
+    
+    printf("\nEnter Student ID to delete: ");
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL || 
+        sscanf(buffer, "%d", &id) != 1) {
+        printf("Invalid ID!\n");
+        return;
+    }
+    
+    for (int i = 0; i < studentCount; i++) {
+        if (students[i].id == id) {
+            printf("Student found: %s (ID: %d, Marks: %.2f)\n", 
+                   students[i].name, students[i].id, students[i].marks);
+            
+            // Confirm deletion
+            printf("Are you sure you want to delete this student? (y/n): ");
+            if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+                return;
+            }
+            
+            if (buffer[0] == 'y' || buffer[0] == 'Y') {
+                // Shift remaining students left to fill the gap
+                for (int j = i; j < studentCount - 1; j++) {
+                    students[j] = students[j + 1];
+                }
+                studentCount--;
+                printf("\nStudent deleted successfully!\n");
+            } else {
+                printf("\nDeletion cancelled.\n");
+            }
+            return;
+        }
+    }
+    printf("Student with ID %d not found!\n", id);
+}
+
 void exportCSV() {
     FILE *fp = fopen("output/exported_students.csv", "w");
     

@@ -14,6 +14,7 @@ void searchStudent();
 void sortStudents();
 void addStudent();
 void updateStudent();
+void deleteStudent();
 void exportCSV();
 
 #endif

@@ -20,10 +20,11 @@ int main() {
         printf("1. View Students\n");
         printf("2. Add Student\n");
         printf("3. Update Student\n");
-        printf("4. Search Student\n");
-        printf("5. Sort Students\n");
-        printf("6. Export CSV\n");
-        printf("7. Exit\n");
+        printf("4. Delete Student\n");
+        printf("5. Search Student\n");
+        printf("6. Sort Students\n");
+        printf("7. Export CSV\n");
+        printf("8. Exit\n");
         printf("Enter choice: ");
         
         if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
@@ -39,11 +40,12 @@ int main() {
             case 1: displayStudents(); break;
             case 2: addStudent(); saveStudents(); break;
             case 3: updateStudent(); saveStudents(); break;
-            case 4: searchStudent(); break;
-            case 5: sortStudents(); break;
-            case 6: exportCSV(); break;
-            case 7: saveStudents(); return 0;
-            default: printf("Invalid choice! Please enter 1-7.\n");
+            case 4: deleteStudent(); saveStudents(); break;
+            case 5: searchStudent(); break;
+            case 6: sortStudents(); break;
+            case 7: exportCSV(); break;
+            case 8: saveStudents(); return 0;
+            default: printf("Invalid choice! Please enter 1-8.\n");
         }
     }
 }
