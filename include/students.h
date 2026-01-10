@@ -15,6 +15,8 @@ void sortStudents();
 void addStudent();
 void updateStudent();
 void deleteStudent();
+void displayStatistics();
+void displayTopPerformers();
 void exportCSV();
 
 #endif

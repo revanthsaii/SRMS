@@ -23,8 +23,10 @@ int main() {
         printf("4. Delete Student\n");
         printf("5. Search Student\n");
         printf("6. Sort Students\n");
-        printf("7. Export CSV\n");
-        printf("8. Exit\n");
+        printf("7. Statistics\n");
+        printf("8. Top Performers\n");
+        printf("9. Export CSV\n");
+        printf("10. Exit\n");
         printf("Enter choice: ");
         
         if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
@@ -43,9 +45,11 @@ int main() {
             case 4: deleteStudent(); saveStudents(); break;
             case 5: searchStudent(); break;
             case 6: sortStudents(); break;
-            case 7: exportCSV(); break;
-            case 8: saveStudents(); return 0;
-            default: printf("Invalid choice! Please enter 1-8.\n");
+            case 7: displayStatistics(); break;
+            case 8: displayTopPerformers(); break;
+            case 9: exportCSV(); break;
+            case 10: saveStudents(); return 0;
+            default: printf("Invalid choice! Please enter 1-10.\n");
         }
     }
 }

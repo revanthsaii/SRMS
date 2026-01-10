@@ -241,6 +241,81 @@ void deleteStudent() {
     printf("Student with ID %d not found!\n", id);
 }
 
+void displayStatistics() {
+    if (studentCount == 0) {
+        printf("\nNo students in database. Cannot display statistics.\n");
+        return;
+    }
+    
+    float total = 0, max = students[0].marks, min = students[0].marks;
+    
+    for (int i = 0; i < studentCount; i++) {
+        total += students[i].marks;
+        if (students[i].marks > max) max = students[i].marks;
+        if (students[i].marks < min) min = students[i].marks;
+    }
+    
+    float average = total / studentCount;
+    
+    printf("\n╔═══════════════════════════════════╗\n");
+    printf("║     STATISTICS DASHBOARD          ║\n");
+    printf("╠═══════════════════════════════════╣\n");
+    printf("║ Total Students:  %-16d ║\n", studentCount);
+    printf("║ Average Marks:   %-16.2f ║\n", average);
+    printf("║ Highest Marks:   %-16.2f ║\n", max);
+    printf("║ Lowest Marks:    %-16.2f ║\n", min);
+    printf("╚═══════════════════════════════════╝\n");
+}
+
+void displayTopPerformers() {
+    if (studentCount == 0) {
+        printf("\nNo students in database.\n");
+        return;
+    }
+    
+    char buffer[100];
+    int n = 5;  // Default to top 5
+    
+    printf("\nEnter number of top performers to display (default 5): ");
+    if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+        int input;
+        if (sscanf(buffer, "%d", &input) == 1 && input > 0) {
+            n = input;
+        }
+    }
+    
+    if (n > studentCount) n = studentCount;
+    
+    // Sort by marks (descending) using a temporary array
+    struct Student sorted[100];
+    for (int i = 0; i < studentCount; i++) {
+        sorted[i] = students[i];
+    }
+    
+    for (int i = 0; i < studentCount - 1; i++) {
+        for (int j = i + 1; j < studentCount; j++) {
+            if (sorted[i].marks < sorted[j].marks) {
+                struct Student temp = sorted[i];
+                sorted[i] = sorted[j];
+                sorted[j] = temp;
+            }
+        }
+    }
+    
+    printf("\n╔════════════════════════════════════════════╗\n");
+    printf("║       TOP %d PERFORMERS                    ║\n", n);
+    printf("╠════════════════════════════════════════════╣\n");
+    printf("║ Rank │  ID  │  Name         │  Marks      ║\n");
+    printf("╠══════╪══════╪═══════════════╪═════════════╣\n");
+    
+    for (int i = 0; i < n; i++) {
+        printf("║  %-2d  │ %-4d │ %-13s │  %6.2f     ║\n", 
+               i + 1, sorted[i].id, sorted[i].name, sorted[i].marks);
+    }
+    
+    printf("╚══════╧══════╧═══════════════╧═════════════╝\n");
+}
+
 void exportCSV() {
     FILE *fp = fopen("output/exported_students.csv", "w");
     
