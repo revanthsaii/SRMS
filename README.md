@@ -61,15 +61,32 @@ The project uses file handling to store, manage, and analyze student records so 
 
 ## How to Run
 
+### Using Make (Recommended)
 1. Install a C compiler (GCC recommended).
-2. Compile the program from the `src` folder (adjust source filenames if needed):
+2. Navigate to the project directory.
+3. Compile using make:
    ```bash
-   gcc main.c -o sms
+   make
    ```
-3. Run the executable:
+4. Run the executable:
    ```bash
-   ./sms
+   ./srms
    ```
+
+### Manual Compilation
+If make is not available, compile manually:
+
+**Linux/Mac:**
+```bash
+gcc -Wall -Wextra -std=c11 -Iinclude src/main.c src/auth.c src/students.c src/utils.c -o srms
+./srms
+```
+
+**Windows:**
+```cmd
+gcc -Wall -Wextra -std=c11 -Iinclude src\main.c src\auth.c src\students.c src\utils.c -o srms.exe
+srms.exe
+```
 
 
 ## File Formats
