@@ -48,7 +48,7 @@ void displayStudents() {
 void searchStudent() {
     char key[50];
     printf("Enter ID or Name to search: ");
-    scanf("%s", key);
+    scanf("%49s", key);
 
     int found = 0;
 
