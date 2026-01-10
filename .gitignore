@@ -1,0 +1,30 @@
+# Executables
+*.exe
+*.out
+sms
+srms
+
+# Object files
+*.o
+*.obj
+
+# Build directories
+bin/
+obj/
+build/
+
+# Data files (don't commit user data)
+data/students.txt
+data/login_history.txt
+output/*.csv
+output/*.txt
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Keep directory structure
+!data/.gitkeep
+!output/.gitkeep
