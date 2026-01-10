@@ -12,6 +12,7 @@ void saveStudents();
 void displayStudents();
 void searchStudent();
 void sortStudents();
+void addStudent();
 void exportCSV();
 
 #endif

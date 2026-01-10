@@ -93,6 +93,58 @@ void sortStudents() {
     printf("\nStudents sorted successfully.\n");
 }
 
+void addStudent() {
+    if (studentCount >= 100) {
+        printf("\nError: Maximum student limit (100) reached!\n");
+        return;
+    }
+    
+    struct Student newStudent;
+    char buffer[100];
+    
+    // Get and validate ID
+    printf("\nEnter Student ID: ");
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL || 
+        sscanf(buffer, "%d", &newStudent.id) != 1) {
+        printf("Invalid ID!\n");
+        return;
+    }
+    
+    // Check for duplicate ID
+    for (int i = 0; i < studentCount; i++) {
+        if (students[i].id == newStudent.id) {
+            printf("Error: Student ID %d already exists!\n", newStudent.id);
+            return;
+        }
+    }
+    
+    // Get name
+    printf("Enter Name: ");
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+        printf("Invalid name!\n");
+        return;
+    }
+    buffer[strcspn(buffer, "\n")] = 0;  // Remove newline
+    strncpy(newStudent.name, buffer, 49);
+    newStudent.name[49] = '\0';
+    
+    // Get marks
+    printf("Enter Marks: ");
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL || 
+        sscanf(buffer, "%f", &newStudent.marks) != 1) {
+        printf("Invalid marks!\n");
+        return;
+    }
+    
+    if (newStudent.marks < 0 || newStudent.marks > 100) {
+        printf("Error: Marks must be between 0 and 100!\n");
+        return;
+    }
+    
+    students[studentCount++] = newStudent;
+    printf("\nStudent added successfully!\n");
+}
+
 void exportCSV() {
     FILE *fp = fopen("output/exported_students.csv", "w");
     
