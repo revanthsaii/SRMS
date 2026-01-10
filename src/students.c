@@ -145,6 +145,52 @@ void addStudent() {
     printf("\nStudent added successfully!\n");
 }
 
+void updateStudent() {
+    int id;
+    char buffer[100];
+    
+    printf("\nEnter Student ID to update: ");
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL || 
+        sscanf(buffer, "%d", &id) != 1) {
+        printf("Invalid ID!\n");
+        return;
+    }
+    
+    for (int i = 0; i < studentCount; i++) {
+        if (students[i].id == id) {
+            printf("Current: ID=%d, Name=%s, Marks=%.2f\n", 
+                   students[i].id, students[i].name, students[i].marks);
+            
+            // Update name
+            printf("Enter new name (or '-' to keep current): ");
+            if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+                buffer[strcspn(buffer, "\n")] = 0;
+                if (strcmp(buffer, "-") != 0) {
+                    strncpy(students[i].name, buffer, 49);
+                    students[i].name[49] = '\0';
+                }
+            }
+            
+            // Update marks
+            printf("Enter new marks (or -1 to keep current): ");
+            if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+                float marks;
+                if (sscanf(buffer, "%f", &marks) == 1 && marks >= 0) {
+                    if (marks <= 100) {
+                        students[i].marks = marks;
+                    } else {
+                        printf("Warning: Marks must be <= 100. Keeping old value.\n");
+                    }
+                }
+            }
+            
+            printf("\nStudent updated successfully!\n");
+            return;
+        }
+    }
+    printf("Student with ID %d not found!\n", id);
+}
+
 void exportCSV() {
     FILE *fp = fopen("output/exported_students.csv", "w");
     

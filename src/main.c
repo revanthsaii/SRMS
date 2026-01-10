@@ -19,10 +19,11 @@ int main() {
         printf("\n--- MENU ---\n");
         printf("1. View Students\n");
         printf("2. Add Student\n");
-        printf("3. Search Student\n");
-        printf("4. Sort Students\n");
-        printf("5. Export CSV\n");
-        printf("6. Exit\n");
+        printf("3. Update Student\n");
+        printf("4. Search Student\n");
+        printf("5. Sort Students\n");
+        printf("6. Export CSV\n");
+        printf("7. Exit\n");
         printf("Enter choice: ");
         
         if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
@@ -37,11 +38,12 @@ int main() {
         switch (choice) {
             case 1: displayStudents(); break;
             case 2: addStudent(); saveStudents(); break;
-            case 3: searchStudent(); break;
-            case 4: sortStudents(); break;
-            case 5: exportCSV(); break;
-            case 6: saveStudents(); return 0;
-            default: printf("Invalid choice! Please enter 1-6.\n");
+            case 3: updateStudent(); saveStudents(); break;
+            case 4: searchStudent(); break;
+            case 5: sortStudents(); break;
+            case 6: exportCSV(); break;
+            case 7: saveStudents(); return 0;
+            default: printf("Invalid choice! Please enter 1-7.\n");
         }
     }
 }

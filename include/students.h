@@ -13,6 +13,7 @@ void displayStudents();
 void searchStudent();
 void sortStudents();
 void addStudent();
+void updateStudent();
 void exportCSV();
 
 #endif
