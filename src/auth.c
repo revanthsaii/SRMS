@@ -7,9 +7,9 @@ int login() {
     char user[50], pass[50], role[50];
 
     printf("Username: ");
-    scanf("%s", user);
+    scanf("%49s", user);
     printf("Password: ");
-    scanf("%s", pass);
+    scanf("%49s", pass);
 
     FILE *fp = fopen("data/credentials.txt", "r");
     if (!fp) return 0;
