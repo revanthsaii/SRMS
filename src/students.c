@@ -10,7 +10,10 @@ void loadStudents() {
     FILE *fp = fopen("data/students.txt", "r");
     studentCount = 0;
 
-    if (fp == NULL) return;
+    if (fp == NULL) {
+        printf("Note: No existing student data found. Starting fresh.\n");
+        return;
+    }
 
     while (fscanf(fp, "%d %s %f", 
         &students[studentCount].id,
@@ -92,6 +95,12 @@ void sortStudents() {
 
 void exportCSV() {
     FILE *fp = fopen("output/exported_students.csv", "w");
+    
+    if (!fp) {
+        printf("\nError: Could not create CSV file! Check if output/ directory exists.\n");
+        return;
+    }
+    
     fprintf(fp, "ID,Name,Marks\n");
 
     for (int i = 0; i < studentCount; i++) {

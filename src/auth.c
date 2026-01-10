@@ -12,7 +12,10 @@ int login() {
     scanf("%49s", pass);
 
     FILE *fp = fopen("data/credentials.txt", "r");
-    if (!fp) return 0;
+    if (!fp) {
+        printf("Error: Could not open credentials file!\n");
+        return 0;
+    }
 
     char u[50], p[50], r[50];
 
