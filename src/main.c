@@ -13,6 +13,7 @@ int main() {
     loadStudents();
 
     int choice;
+    char buffer[100];
 
     while (1) {
         printf("\n--- MENU ---\n");
@@ -22,7 +23,15 @@ int main() {
         printf("4. Export CSV\n");
         printf("5. Exit\n");
         printf("Enter choice: ");
-        scanf("%d", &choice);
+        
+        if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+            continue;
+        }
+        
+        if (sscanf(buffer, "%d", &choice) != 1) {
+            printf("Invalid input! Please enter a number.\n");
+            continue;
+        }
 
         switch (choice) {
             case 1: displayStudents(); break;
@@ -30,7 +39,7 @@ int main() {
             case 3: sortStudents(); break;
             case 4: exportCSV(); break;
             case 5: saveStudents(); return 0;
-            default: printf("Invalid!\n");
+            default: printf("Invalid choice! Please enter 1-5.\n");
         }
     }
 }
