@@ -31,7 +31,13 @@ void createBackup() {
     FILE *src = fopen("data/students.txt", "r");
     if (!src) return;
     
-    FILE *dst = fopen("data/students_backup.txt", "w");
+    // Create timestamped backup filename
+    time_t now = time(NULL);
+    struct tm *t = localtime(&now);
+    char backup_file[100];
+    strftime(backup_file, sizeof(backup_file), "data/backup_%Y%m%d_%H%M%S.txt", t);
+    
+    FILE *dst = fopen(backup_file, "w");
     if (!dst) {
         fclose(src);
         return;
