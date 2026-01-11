@@ -361,6 +361,40 @@ void displayTopPerformers() {
     printf("╚══════╧══════╧═══════════════╧═════════════╝\n");
 }
 
+void displayByDepartment() {
+    char dept[30];
+    char buffer[100];
+    
+    printf("\nEnter department to filter (e.g., CSE, ECE, MECH): ");
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+        return;
+    }
+    buffer[strcspn(buffer, "\n")] = 0;
+    strncpy(dept, buffer, 29);
+    dept[29] = '\0';
+    
+    printf("\n╔════════════════════════════════════════════╗\n");
+    printf("║   Students in %s Department             ║\n", dept);
+    printf("╠════════════════════════════════════════════╣\n");
+    printf("║  ID  │  Name                │  Marks      ║\n");
+    printf("╠══════╪═══════════════════════╪═════════════╣\n");
+    
+    int found = 0;
+    for (int i = 0; i < studentCount; i++) {
+        if (strcmp(students[i].department, dept) == 0) {
+            printf("║ %-4d │ %-20s │  %6.2f     ║\n", 
+                students[i].id, students[i].name, students[i].marks);
+            found++;
+        }
+    }
+    
+    if (found == 0) {
+        printf("║   No students found in this department    ║\n");
+    }
+    printf("╚══════╧═══════════════════════╧═════════════╝\n");
+    printf("\nTotal: %d students in %s\n", found, dept);
+}
+
 void exportCSV() {
     FILE *fp = fopen("output/exported_students.csv", "w");
     

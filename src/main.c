@@ -29,8 +29,9 @@ int main() {
         printf("║  6. Sort Students                 ║\n");
         printf("║  7. Statistics                    ║\n");
         printf("║  8. Top Performers                ║\n");
-        printf("║  9. Export CSV                    ║\n");
-        printf("║ 10. Exit                          ║\n");
+        printf("║  9. View by Department            ║\n");
+        printf("║ 10. Export CSV                    ║\n");
+        printf("║ 11. Exit                          ║\n");
         printf("╚═══════════════════════════════════╝\n");
         printf("Enter choice: ");
         
@@ -52,9 +53,10 @@ int main() {
             case 6: sortStudents(); break;
             case 7: displayStatistics(); break;
             case 8: displayTopPerformers(); break;
-            case 9: exportCSV(); break;
-            case 10: saveStudents(); return 0;
-            default: printf("Invalid choice! Please enter 1-10.\n");
+            case 9: displayByDepartment(); break;
+            case 10: exportCSV(); break;
+            case 11: saveStudents(); return 0;
+            default: printf("Invalid choice! Please enter 1-11.\n");
         }
     }
 }
