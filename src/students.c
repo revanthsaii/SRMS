@@ -187,6 +187,19 @@ void addStudent() {
     strncpy(newStudent.department, buffer, 29);
     newStudent.department[29] = '\0';
     
+    // Get age
+    printf("Enter Age: ");
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL || 
+        sscanf(buffer, "%d", &newStudent.age) != 1) {
+        printf("Invalid age!\n");
+        return;
+    }
+    
+    if (newStudent.age < 16 || newStudent.age > 99) {
+        printf("Error: Age must be between 16 and 99!\n");
+        return;
+    }
+    
     // Get marks
     printf("Enter Marks: ");
     if (fgets(buffer, sizeof(buffer), stdin) == NULL || 
