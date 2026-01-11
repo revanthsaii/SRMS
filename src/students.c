@@ -421,14 +421,15 @@ void exportCSV() {
         return;
     }
     
-    fprintf(fp, "ID,Name,Marks\n");
+    fprintf(fp, "ID,Name,Department,Age,Marks\n");
 
     for (int i = 0; i < studentCount; i++) {
-        fprintf(fp, "%d,%s,%.2f\n",
-            students[i].id, students[i].name, students[i].marks
+        fprintf(fp, "%d,%s,%s,%d,%.2f\n",
+            students[i].id, students[i].name, students[i].department, 
+            students[i].age, students[i].marks
         );
     }
 
     fclose(fp);
-    printf("\nStudents exported to CSV!\n");
+    printf("\n✓ Data exported to output/exported_students.csv successfully!\n");
 }
