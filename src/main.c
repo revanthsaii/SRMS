@@ -16,17 +16,21 @@ int main() {
     char buffer[100];
 
     while (1) {
-        printf("\n--- MENU [%d students] ---\n", getStudentCount());
-        printf("1. View Students\n");
-        printf("2. Add Student\n");
-        printf("3. Update Student\n");
-        printf("4. Delete Student\n");
-        printf("5. Search Student\n");
-        printf("6. Sort Students\n");
-        printf("7. Statistics\n");
-        printf("8. Top Performers\n");
-        printf("9. Export CSV\n");
-        printf("10. Exit\n");
+        printf("\n╔═══════════════════════════════════╗\n");
+        printf("║   STUDENT MANAGEMENT SYSTEM       ║\n");
+        printf("║   [%d students in database]        ║\n", getStudentCount());
+        printf("╠═══════════════════════════════════╣\n");
+        printf("║  1. View Students                 ║\n");
+        printf("║  2. Add Student                   ║\n");
+        printf("║  3. Update Student                ║\n");
+        printf("║  4. Delete Student                ║\n");
+        printf("║  5. Search Student                ║\n");
+        printf("║  6. Sort Students                 ║\n");
+        printf("║  7. Statistics                    ║\n");
+        printf("║  8. Top Performers                ║\n");
+        printf("║  9. Export CSV                    ║\n");
+        printf("║ 10. Exit                          ║\n");
+        printf("╚═══════════════════════════════════╝\n");
         printf("Enter choice: ");
         
         if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
