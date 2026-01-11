@@ -15,10 +15,11 @@ void loadStudents() {
         return;
     }
 
-    while (fscanf(fp, "%d %s %s %f", 
+    while (fscanf(fp, "%d %s %s %d %f", 
         &students[studentCount].id,
         students[studentCount].name,
         students[studentCount].department,
+        &students[studentCount].age,
         &students[studentCount].marks) != EOF) 
     {
         studentCount++;
@@ -55,10 +56,11 @@ void saveStudents() {
     }
     
     for (int i = 0; i < studentCount; i++) {
-        fprintf(fp, "%d %s %s %.2f\n",
+        fprintf(fp, "%d %s %s %d %.2f\n",
             students[i].id,
             students[i].name,
             students[i].department,
+            students[i].age,
             students[i].marks
         );
     }
