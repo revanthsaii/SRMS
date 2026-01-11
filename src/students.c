@@ -26,8 +26,34 @@ void loadStudents() {
     fclose(fp);
 }
 
+void createBackup() {
+    FILE *src = fopen("data/students.txt", "r");
+    if (!src) return;
+    
+    FILE *dst = fopen("data/students_backup.txt", "w");
+    if (!dst) {
+        fclose(src);
+        return;
+    }
+    
+    char ch;
+    while ((ch = fgetc(src)) != EOF) {
+        fputc(ch, dst);
+    }
+    
+    fclose(src);
+    fclose(dst);
+}
+
 void saveStudents() {
+    createBackup();  // Backup before saving
+    
     FILE *fp = fopen("data/students.txt", "w");
+    if (!fp) {
+        printf("Error: Could not save students!\n");
+        return;
+    }
+    
     for (int i = 0; i < studentCount; i++) {
         fprintf(fp, "%d %s %s %.2f\n",
             students[i].id,
