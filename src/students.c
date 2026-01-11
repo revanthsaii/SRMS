@@ -74,17 +74,20 @@ void searchStudent() {
     int found = 0;
 
     for (int i = 0; i < studentCount; i++) {
-        if (strcmp(students[i].name, key)==0 || students[i].id == atoi(key)) {
-            printf("\nFound: %d %s %.2f\n",
+        // Partial name match using strstr, or exact ID match
+        if (strstr(students[i].name, key) != NULL || students[i].id == atoi(key)) {
+            printf("\nFound: ID=%d | %s | %s | %.2f marks\n",
                 students[i].id,
                 students[i].name,
+                students[i].department,
                 students[i].marks
             );
-            found = 1;
+            found++;
         }
     }
 
     if (!found) printf("No student found!\n");
+    else if (found > 1) printf("\n%d students matched.\n", found);
 }
 
 void sortStudents() {
