@@ -5,6 +5,7 @@ struct Student {
     int id;
     char name[50];
     char department[30];
+    int age;
     float marks;
 };
 
