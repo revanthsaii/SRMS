@@ -259,6 +259,17 @@ void updateStudent() {
                 }
             }
             
+            // Update age
+            printf("Enter new age (or -1 to keep current): ");
+            if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+                int age;
+                if (sscanf(buffer, "%d", &age) == 1 && age >= 16 && age <= 99) {
+                    students[i].age = age;
+                } else if (age != -1) {
+                    printf("Warning: Age must be 16-99. Keeping old value.\n");
+                }
+            }
+            
             printf("\nStudent updated successfully!\n");
             return;
         }
