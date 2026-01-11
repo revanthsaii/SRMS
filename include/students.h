@@ -17,6 +17,7 @@ void updateStudent();
 void deleteStudent();
 void displayStatistics();
 void displayTopPerformers();
+int getStudentCount();
 void exportCSV();
 
 #endif

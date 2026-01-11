@@ -37,6 +37,10 @@ void saveStudents() {
     fclose(fp);
 }
 
+int getStudentCount() {
+    return studentCount;
+}
+
 void displayStudents() {
     if (studentCount == 0) {
         printf("\nNo students in the database.\n");

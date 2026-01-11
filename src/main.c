@@ -16,7 +16,7 @@ int main() {
     char buffer[100];
 
     while (1) {
-        printf("\n--- MENU ---\n");
+        printf("\n--- MENU [%d students] ---\n", getStudentCount());
         printf("1. View Students\n");
         printf("2. Add Student\n");
         printf("3. Update Student\n");
