@@ -1,9 +1,9 @@
 ***
 
-# Student Management System (SRMS)
+# Student Management System (SRMS) v2.0
 
-A simple and efficient Student Management System built using C.
-The project uses file handling to store, manage, and analyze student records so that data persists even after the program exits.
+A comprehensive Student Management System built using C with full CRUD operations, analytics, backup system, and security features.
+The project uses file handling to store, manage, and analyze student records with department categorization and age tracking.
 
 ## Features
 
