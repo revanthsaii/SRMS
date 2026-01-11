@@ -9,6 +9,10 @@ int main() {
         printf("Login failed!\n");
         return 0;
     }
+    
+    printf("\n╔═══════════════════════════════════╗\n");
+    printf("║      Welcome to SRMS v2.0!        ║\n");
+    printf("╚═══════════════════════════════════╝\n");
 
     loadStudents();
 
