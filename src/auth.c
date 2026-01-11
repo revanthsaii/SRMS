@@ -4,7 +4,7 @@
 #include "../include/auth.h"
 
 int login() {
-    char user[50], pass[50], role[50];
+    char user[50], pass[50];
 
     printf("Username: ");
     scanf("%49s", user);
