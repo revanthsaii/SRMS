@@ -129,7 +129,14 @@ void searchStudent() {
 
 void sortStudents() {
     int choice;
-    printf("\nSort By: 1-ID  2-Name  3-Marks: ");
+    printf("\n╔═══════════════════════════════╗\n");
+    printf("║       SORT OPTIONS            ║\n");
+    printf("╠═══════════════════════════════╣\n");
+    printf("║  1. Sort by ID                ║\n");
+    printf("║  2. Sort by Name              ║\n");
+    printf("║  3. Sort by Marks (High-Low)  ║\n");
+    printf("╚═══════════════════════════════╝\n");
+    printf("Enter choice: ");
     scanf("%d", &choice);
 
     for (int i = 0; i < studentCount-1; i++) {
