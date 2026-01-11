@@ -41,7 +41,7 @@ int login() {
     return 0;
 }
 
-void logLoginHistory(char *user, int success) {
+void logLoginHistory(const char *user, int success) {
     FILE *fp = fopen("data/login_history.txt", "a");
     if (!fp) return;
 
