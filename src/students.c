@@ -15,9 +15,10 @@ void loadStudents() {
         return;
     }
 
-    while (fscanf(fp, "%d %s %f", 
+    while (fscanf(fp, "%d %s %s %f", 
         &students[studentCount].id,
         students[studentCount].name,
+        students[studentCount].department,
         &students[studentCount].marks) != EOF) 
     {
         studentCount++;
@@ -28,9 +29,10 @@ void loadStudents() {
 void saveStudents() {
     FILE *fp = fopen("data/students.txt", "w");
     for (int i = 0; i < studentCount; i++) {
-        fprintf(fp, "%d %s %.2f\n",
+        fprintf(fp, "%d %s %s %.2f\n",
             students[i].id,
             students[i].name,
+            students[i].department,
             students[i].marks
         );
     }
@@ -143,6 +145,16 @@ void addStudent() {
     buffer[strcspn(buffer, "\n")] = 0;  // Remove newline
     strncpy(newStudent.name, buffer, 49);
     newStudent.name[49] = '\0';
+    
+    // Get department
+    printf("Enter Department (e.g., CSE, ECE, MECH): ");
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+        printf("Invalid department!\n");
+        return;
+    }
+    buffer[strcspn(buffer, "\n")] = 0;
+    strncpy(newStudent.department, buffer, 29);
+    newStudent.department[29] = '\0';
     
     // Get marks
     printf("Enter Marks: ");
