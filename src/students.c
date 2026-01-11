@@ -104,10 +104,11 @@ void searchStudent() {
     for (int i = 0; i < studentCount; i++) {
         // Partial name match using strstr, or exact ID match
         if (strstr(students[i].name, key) != NULL || students[i].id == atoi(key)) {
-            printf("\nFound: ID=%d | %s | %s | %.2f marks\n",
+            printf("\nFound: ID=%d | %s | %s | Age=%d | %.2f marks\n",
                 students[i].id,
                 students[i].name,
                 students[i].department,
+                students[i].age,
                 students[i].marks
             );
             found++;
