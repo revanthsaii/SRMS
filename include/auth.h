@@ -2,6 +2,6 @@
 #define AUTH_H
 
 int login();
-void logLoginHistory(char *user);
+void logLoginHistory(char *user, int success);
 
 #endif
