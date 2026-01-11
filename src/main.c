@@ -16,6 +16,7 @@ int main() {
     char buffer[100];
 
     while (1) {
+        clearScreen();
         printf("\n╔═══════════════════════════════════╗\n");
         printf("║   STUDENT MANAGEMENT SYSTEM       ║\n");
         printf("║   [%d students in database]        ║\n", getStudentCount());
