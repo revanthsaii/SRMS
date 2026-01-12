@@ -411,18 +411,18 @@ void displayTopPerformers() {
         }
     }
     
-    printf("\n╔════════════════════════════════════════════╗\n");
-    printf("║       TOP %d PERFORMERS                    ║\n", n);
-    printf("╠════════════════════════════════════════════╣\n");
-    printf("║ Rank │  ID  │  Name         │  Marks      ║\n");
-    printf("╠══════╪══════╪═══════════════╪═════════════╣\n");
+    printf("\n╔═════════════════════════════════════════════════════╗\n");
+    printf("║       TOP %d PERFORMERS                             ║\n", n);
+    printf("╠═════════════════════════════════════════════════════╣\n");
+    printf("║ Rank │  ID  │  Name         │  Marks  │  Grade     ║\n");
+    printf("╠══════╪══════╪═══════════════╪═════════╪════════════╣\n");
     
     for (int i = 0; i < n; i++) {
-        printf("║  %-2d  │ %-4d │ %-13s │  %6.2f     ║\n", 
-               i + 1, sorted[i].id, sorted[i].name, sorted[i].marks);
+        printf("║  %-2d  │ %-4d │ %-13s │  %5.2f  │     %c      ║\n", 
+               i + 1, sorted[i].id, sorted[i].name, sorted[i].marks, getGrade(sorted[i].marks));
     }
     
-    printf("╚══════╧══════╧═══════════════╧═════════════╝\n");
+    printf("╚══════╧══════╧═══════════════╧═════════╧════════════╝\n");
 }
 
 void displayByDepartment() {
