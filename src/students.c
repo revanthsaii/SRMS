@@ -467,12 +467,12 @@ void exportCSV() {
         return;
     }
     
-    fprintf(fp, "ID,Name,Department,Age,Marks\n");
+    fprintf(fp, "ID,Name,Department,Age,Marks,Grade\n");
 
     for (int i = 0; i < studentCount; i++) {
-        fprintf(fp, "%d,%s,%s,%d,%.2f\n",
+        fprintf(fp, "%d,%s,%s,%d,%.2f,%c\n",
             students[i].id, students[i].name, students[i].department, 
-            students[i].age, students[i].marks
+            students[i].age, students[i].marks, getGrade(students[i].marks)
         );
     }
 
