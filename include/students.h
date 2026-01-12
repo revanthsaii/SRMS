@@ -21,6 +21,7 @@ void displayStatistics();
 void displayTopPerformers();
 void displayByDepartment();
 int getStudentCount();
+char getGrade(float marks);
 void exportCSV();
 
 #endif

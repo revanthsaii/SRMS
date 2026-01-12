@@ -78,6 +78,14 @@ int getStudentCount() {
     return studentCount;
 }
 
+char getGrade(float marks) {
+    if (marks >= 90) return 'A';
+    if (marks >= 80) return 'B';
+    if (marks >= 70) return 'C';
+    if (marks >= 60) return 'D';
+    return 'F';
+}
+
 void displayStudents() {
     if (studentCount == 0) {
         printf("\nNo students in the database.\n");
