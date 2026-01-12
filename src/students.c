@@ -92,23 +92,24 @@ void displayStudents() {
         return;
     }
     
-    printf("\n╔════════════════════════════════════════════════════════════════════╗\n");
-    printf("║                    STUDENT RECORDS (%d)                           ║\n", studentCount);
-    printf("╠════════════════════════════════════════════════════════════════════╣\n");
-    printf("║  ID  │  Name             │  Dept    │  Age  │  Marks             ║\n");
-    printf("╠══════╪═══════════════════╪══════════╪═══════╪════════════════════╣\n");
+    printf("\n╔══════════════════════════════════════════════════════════════════════════╗\n");
+    printf("║                       STUDENT RECORDS (%d)                               ║\n", studentCount);
+    printf("╠══════════════════════════════════════════════════════════════════════════╣\n");
+    printf("║  ID  │  Name             │  Dept    │  Age  │  Marks  │  Grade          ║\n");
+    printf("╠══════╪═══════════════════╪══════════╪═══════╪═════════╪═════════════════╣\n");
     
     for (int i = 0; i < studentCount; i++) {
-        printf("║ %-4d │ %-17s │ %-8s │  %-4d │   %6.2f           ║\n", 
+        printf("║ %-4d │ %-17s │ %-8s │  %-4d │  %5.2f  │    %c            ║\n", 
             students[i].id, 
             students[i].name,
             students[i].department,
             students[i].age,
-            students[i].marks
+            students[i].marks,
+            getGrade(students[i].marks)
         );
     }
     
-    printf("╚══════╧═══════════════════╧══════════╧═══════╧════════════════════╝\n");
+    printf("╚══════╧═══════════════════╧══════════╧═══════╧═════════╧═════════════════╝\n");
 }
 
 void searchStudent() {
