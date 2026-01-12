@@ -354,6 +354,15 @@ void displayStatistics() {
     
     float average = total / studentCount;
     
+    // Count students per department
+    int cseCount = 0, eceCount = 0, mechCount = 0, otherCount = 0;
+    for (int i = 0; i < studentCount; i++) {
+        if (strcmp(students[i].department, "CSE") == 0) cseCount++;
+        else if (strcmp(students[i].department, "ECE") == 0) eceCount++;
+        else if (strcmp(students[i].department, "MECH") == 0) mechCount++;
+        else otherCount++;
+    }
+    
     printf("\n╔═══════════════════════════════════╗\n");
     printf("║     STATISTICS DASHBOARD          ║\n");
     printf("╠═══════════════════════════════════╣\n");
@@ -361,6 +370,9 @@ void displayStatistics() {
     printf("║ Average Marks:   %-16.2f ║\n", average);
     printf("║ Highest Marks:   %-16.2f ║\n", max);
     printf("║ Lowest Marks:    %-16.2f ║\n", min);
+    printf("╠═══════════════════════════════════╣\n");
+    printf("║ CSE: %-5d  ECE: %-5d           ║\n", cseCount, eceCount);
+    printf("║ MECH: %-4d  Other: %-4d          ║\n", mechCount, otherCount);
     printf("╚═══════════════════════════════════╝\n");
 }
 
