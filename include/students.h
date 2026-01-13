@@ -22,6 +22,7 @@ void displayTopPerformers();
 void displayByDepartment();
 int getStudentCount();
 char getGrade(float marks);
+const char* getPassStatus(float marks);
 void exportCSV();
 
 #endif

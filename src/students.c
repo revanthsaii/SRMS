@@ -86,6 +86,10 @@ char getGrade(float marks) {
     return 'F';
 }
 
+const char* getPassStatus(float marks) {
+    return (marks >= 40) ? "PASS" : "FAIL";
+}
+
 void displayStudents() {
     if (studentCount == 0) {
         printf("\nNo students in the database.\n");
