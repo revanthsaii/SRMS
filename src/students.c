@@ -377,6 +377,20 @@ void displayStatistics() {
     printf("╠═══════════════════════════════════╣\n");
     printf("║ CSE: %-5d  ECE: %-5d           ║\n", cseCount, eceCount);
     printf("║ MECH: %-4d  Other: %-4d          ║\n", mechCount, otherCount);
+    printf("╠═══════════════════════════════════╣\n");
+    
+    // Count grades
+    int gradeA = 0, gradeB = 0, gradeC = 0, gradeD = 0, gradeF = 0;
+    for (int i = 0; i < studentCount; i++) {
+        char g = getGrade(students[i].marks);
+        if (g == 'A') gradeA++;
+        else if (g == 'B') gradeB++;
+        else if (g == 'C') gradeC++;
+        else if (g == 'D') gradeD++;
+        else gradeF++;
+    }
+    printf("║ Grade Distribution:               ║\n");
+    printf("║ A:%-3d B:%-3d C:%-3d D:%-3d F:%-3d   ║\n", gradeA, gradeB, gradeC, gradeD, gradeF);
     printf("╚═══════════════════════════════════╝\n");
 }
 
